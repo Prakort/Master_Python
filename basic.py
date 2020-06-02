@@ -86,7 +86,15 @@ print('fast',end_time - start_time)
 # is object identity 
 # is not negated object identity
 a = [1,2,3,4,5,6,7]
+b = a 
+# b is a reference of a and have the same value and they are the same object
+print('==', a == b , 'vs is', a is b)
+c = [1,2,3,4,5,6,7]
+# c has the same value as a but c is not the same object as a
+print('==', a == c , 'vs is', a is c)
+# del i to j and k skip
 del a[1:6:2]
+# list.append(x) := a[len(a):len(a)] = [x] <= must be iteratable
 a.append(100)
 a[len(a):len(a)] = [1000]
 # list.clear() := del list[:]
