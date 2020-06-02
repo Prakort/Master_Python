@@ -77,10 +77,10 @@ def int_to_string_func(x):
 
   return ('-' if is_negative else '') + ''.join(reversed(s))
   
-start_time =  time.time()
-int_to_string_func(number)
-end_time =  time.time()
-print('fast',end_time - start_time)
+# start_time =  time.time()
+# int_to_string_func(number)
+# end_time =  time.time()
+# print('fast',end_time - start_time)
 
 # != not equal
 # is object identity 
@@ -115,7 +115,29 @@ students = [
   ('z', 1, 'bbb')
 ]
 import operator
+# list.sort(key=function) key is a function return which element that the list will sort by
 students.sort(key= lambda student: student[2])
 print(students)
+# using operator.itemgetter or attrigetter to sort by more than 1 element
 students.sort(key=operator.itemgetter(0,1))
 print(students)
+
+a = 'signle quotes string'
+b = "double quotes string"
+c = """ tripple quotes string"""
+d = ''' tripple quotes string '''
+print('str.count(sub[start:end])',a.count('si'))
+print('str.endswith(suffix)', a.endswith('string'))
+
+# str.format 
+print('{} is the signle quotes string {}'.format(a,2))
+
+# str.format
+print('{e} if e is not defined not missing value we could use format to give default value'.format(e='John as default value'))
+
+# str.isascii()
+print('str.isascii()',"007F".isascii())
+# str.isdecimal()
+print('str.isdecimal()','090'.isdecimal())
+
+
