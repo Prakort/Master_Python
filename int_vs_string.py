@@ -34,3 +34,8 @@ print('string to int: ',string_to_int_two('220000'))
 
 # s = '12345'
 # print(s[True:])
+
+
+# functools.reduce(function, iterable, initilizer=None):
+# apply function with two arguments, reduce iterable to a sign value
+# from left to right
