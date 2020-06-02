@@ -136,8 +136,15 @@ print('{} is the signle quotes string {}'.format(a,2))
 print('{e} if e is not defined not missing value we could use format to give default value'.format(e='John as default value'))
 
 # str.isascii()
-print('str.isascii()',"007F".isascii())
+print('str.isascii()',"007F".isascii()) 
 # str.isdecimal()
-print('str.isdecimal()','090'.isdecimal())
+print('str.isdecimal()','090'.isdecimal()) 
+# str.isdigit()
+print('str.isdigit','090'.isdigit())
+# str.isnumeric()
+print('str.isnumberic()', '033333'.isnumeric())
+# This link below has awesome examples of the differences between these 3
+# https://stackoverflow.com/questions/44891070/whats-the-difference-between-str-isdigit-isnumeric-and-isdecimal-in-python
 
-
+# str.title() => first char of each word to upper case
+print('Make a title with str.title()','this is awesome'.title())
