@@ -25,3 +25,8 @@ print('del a["one"]',a , 'b := a ',b)
 # key not in dict 
 # key is not in dict is wrong
 print( 'two' not in a)
+
+print('iter(d)', iter(a.keys()))
+
+
+print(type(None))

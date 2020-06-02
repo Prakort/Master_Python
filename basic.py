@@ -148,3 +148,9 @@ print('str.isnumberic()', '033333'.isnumeric())
 
 # str.title() => first char of each word to upper case
 print('Make a title with str.title()','this is awesome'.title())
+
+
+s = ['2','4','1']
+
+print(''.join(s.reverse()))
+print(s.reverse())
