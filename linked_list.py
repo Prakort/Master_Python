@@ -23,3 +23,16 @@ class ListNode:
 
 
 
+def swap(a,b):
+  temp = a
+  a = b
+  b = temp
+  return a,b
+
+def swap(a,b):
+  a = a^b 
+  b = a^b
+  a = a^b
+
+  return a,n
+
