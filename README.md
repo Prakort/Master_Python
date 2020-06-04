@@ -17,7 +17,7 @@
 
 #### Think out loud:
 
-- Help the interviewer guide your thought process in the right direction.
+- Express the thought process.
 
 #### Apply patterns:
 
