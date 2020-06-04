@@ -3,10 +3,16 @@ class Solution:
       
       return self.hieght(root)
   
-  def hieght(self,root):
-    if root is None:
-      return 0
-    
-    left = self.hieght(root.left) + 1
-    right = self.hieght(root.right) + 1
-    return max(left,right)
+  def height(self,root):
+        
+        if root is None:
+          return 0
+        
+        #find the left subtree height
+        left = self.height(root.left)
+        #find the right subtree height
+        right = self.height(root.right)
+        
+        # why + 1 ? one is the root node since we already check it is not null
+        return max(left,right) + 1
+        
