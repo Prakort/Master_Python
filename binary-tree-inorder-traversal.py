@@ -9,4 +9,10 @@ class Solution:
       result.append(curr.val)
       curr = curr.right
     return result
-          
+    
+  def recursive(root,list):
+    if root is None:
+      return
+    recursive(root.left,list)
+    recursive(root.right,list)
+    list.append(root.val)
