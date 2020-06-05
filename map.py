@@ -25,8 +25,8 @@ print('del a["one"]',a , 'b := a ',b)
 # key not in dict 
 # key is not in dict is wrong
 print( 'two' not in a)
+a = '222'
+# print('iter(d)', iter(a.keys()))
+print(a.get('five'))
 
-print('iter(d)', iter(a.keys()))
-
-
-print(type(None))
+# print(type(None))
