@@ -2,7 +2,8 @@ class Solution:
   def isValidBST(self, root: TreeNode) -> bool:
     
     return self.recursive(root, float('-inf'), float('inf'))
-  
+  # time complexity: O(n), every node is visited
+  # space complexity: O(n), func is places on the stacks where H is height of the tree h < n
   def recursive(self,root, min, max):
     if not root:
       return True
