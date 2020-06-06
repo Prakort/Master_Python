@@ -1,5 +1,20 @@
 class Solution:
   def isValidBST(self, root: TreeNode) -> bool:
+    
+    return self.recursive(root, float('-inf'), float('inf'))
+  
+  def recursive(self,root, min, max):
+    if not root:
+      return True
+    # BST property that the values are sorted
+    # check the lower and upper bound
+    if root.val <= min or root.val >= max:
+      return False
+
+    # check the children node and update the lower and upper
+    return self.recursive(root.right, root.val, max) and self.recursive(root.left, min, root.val)
+  
+  def iterative(self,root):
     # use stack to push the node
     stack, curr, smallest = [], root, float('-inf')
     
@@ -15,4 +30,5 @@ class Solution:
       # update the checked smallest
       smallest = curr.val
       curr = curr.right
+      
     return True
