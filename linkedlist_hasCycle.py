@@ -7,12 +7,20 @@ def hasCycle1(self, head: ListNode) -> bool:
     head = head.next
   return False
   
-def hasCycle2(self, head: ListNode) -> bool:
+def hasCycle(self, head: ListNode) -> bool:
   slow = head
   fast = head
-  while slow and fast.next and fast.next.next:
+  
+  # if slow is null ==> the end of the list
+  # if fast is null ==> the end of the list
+  # if fast.next is null ==> fast is the last node of the list
+  while slow and fast and fast.next:
     slow = slow.next
     fast = fast.next.next
-    if(slow == fast):
+    if slow is fast:
       return True
+    
+    
   return False
+  
+
