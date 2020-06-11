@@ -32,3 +32,23 @@ def solution(l1, l2):
 
   return dummy.next
 
+def recursive(l1, l2, carry):
+  if not l1 and not l2 and carry == 0:
+    return None
+
+  sum = carry
+  sum += l1.val if l1 else 0
+  sum += l2.val if l2 else 0 
+
+  carry = sum // 10 
+  node = ListNode(sum % 10)
+
+  l1 = l1.next if l1 else None 
+  l2 = l2.next if l2 else None 
+
+  # both node could be null but carry value could exist
+  # add the carry node
+  if l1 or l2 or carry:
+    node.next = recursive(l1, l2, carry)
+
+  return node
