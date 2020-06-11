@@ -89,3 +89,32 @@ class Solution:
       return ptr
       
     
+    def simpleIterative(self,head):
+      if not head:
+        return head
+      
+      def cloneNode(head,hm):
+        if not head:
+          return head 
+
+        if head in hm:
+          return hm[head]
+        else:
+          node = Node(head.val)
+          hm[head] = node 
+          return node
+
+      hm = {}
+      copy = cloneNode(head,hm)
+
+      while head:
+
+        copy = cloneNode(head,hm)
+        # not check head ? because while head has already checked if head is null or not 
+        # no need to check it again
+        copy.next = cloneNode(head.next, hm)
+        copy.random = cloneNode(head.random, hm)
+
+        head, copy = head.next, copy.next 
+        
+
