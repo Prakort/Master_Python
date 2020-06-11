@@ -23,19 +23,23 @@ def solution(head, n):
   from [n + 1.... len(list)] the end of the list we should advance prev iterator
   
   """
+
+  # why we need dummy = ListNode(-1) not dummy = head ?
+  # in case of head has only node
+  # we dont have the previous node to start the jump to skip that signle node to null node
   dummy = ListNode(-1)
-  ahead = dummy.next
-  prev = dummy.next
+  dummy.next = head
+  prev = curr = dummy
   count = 0
-  while ahead:
+  
+  while curr:
     if count >= n + 1:
-      prev = prev.next
-
-    count += 1
-    ahead = ahead.next 
-
+      prev = prev.next 
+    count +=1
+    curr = curr.next 
+    
   if prev:
     prev.next = prev.next.next 
-
+    
   return dummy.next
-
+      
