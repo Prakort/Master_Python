@@ -10,9 +10,11 @@ class Solution:
       curr = curr.right
     return result
     
-  def recursive(root,list):
+  def recursive(self,root,list):
     if root is None:
       return
-    recursive(root.left,list)
-    recursive(root.right,list)
+    if root.left:
+      self.recursive(root.left,list)
     list.append(root.val)
+    if root.right:
+      self.recursive(root.right,list)
