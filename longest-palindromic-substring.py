@@ -1,4 +1,11 @@
 def dp(s):
+  """
+  pre-computed the palindrome substring and store value in the 2D list
+  the next substring will check both end and inner substring that has been processed already
+
+  runtime: O(N^2), outter loop iterates over N elements, inner loop iterates up to N elements
+  space: 2D list to store pre-computed value O(N^2)
+  """
   lens = len(s)
 
   # store boolean in each cell
