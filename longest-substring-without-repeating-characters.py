@@ -69,8 +69,9 @@ def solution2(str):
   while right < lens:
     if s[right] not in sets: 
       sets.add(s[right])
+      res = max(res, right - left + 1)
       right +=1
-      res = max(res, right - left)
+      
     else:
       sets.remove(s[left])
       left +=1
