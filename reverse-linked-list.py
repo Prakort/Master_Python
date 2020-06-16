@@ -14,7 +14,7 @@ def iterative(head):
     # that's what we wanted
     # why prev = None ? because this is the new end of the reversed linkedlist
     # but after first iteration, curr points back
-    curr = prev
+    curr.next = prev
 
     # assign the prev to the current node
     prev = curr
