@@ -39,3 +39,8 @@ def helper(nums, target, path, output, index):
       continue 
 
     helper(nums, target, path + [nums[i]], i + 1)
+[
+  [1, 1, 1, 1, 1, 1, 1], 
+  [1, 2, 3, 4, 5, 6, 7], 
+  [1, 0, 3, 7, 12, 18, 25]
+]
