@@ -39,4 +39,14 @@ def reverse(nums):
   # if end is 0, that means, the last index is reachable
   return not end
     
-    
+def solution3(nums):
+  n = len(nums)
+
+  steps = nums[0]
+
+  for i in range(1, n):
+    if steps < i :
+      return False
+    steps = max(steps, nums[i] + i)
+
+  return True
