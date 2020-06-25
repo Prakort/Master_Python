@@ -22,7 +22,7 @@ def solution(s):
   def _pointers(s):
     i = 0 
     j = len(s) - 1
-
+    
     while i < j :
       #skip anything not alphanum from the left and right
       #still have to check boundary
