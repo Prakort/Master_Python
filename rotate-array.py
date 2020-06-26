@@ -19,5 +19,8 @@ def reverse(nums, l , r, n):
     l += 1
     r -=1
 
+##### possible solution ######
+# for i in range(k): nums.insert(0,nums.pop())
+##### wow one line code
 
-
+##### nums[:] = nums[n-k:] + nums[:n-k]
