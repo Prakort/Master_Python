@@ -88,3 +88,28 @@ def expandCenter(s, left, right):
   # - left + 1 to get the previous matched palindrom
   # - right unchaged since str is sliced up to before right index
   return s[left+ 1: right]
+
+def dp_clean(s):
+        
+  n = len(s)
+  # table to cache the palindrome substring        
+  dp = [[False for _ in range(n)] for _ in range(n)]
+
+  max_len = ''    
+  # look from the right to the left
+  # [0-n]
+  for i in range(n):
+    # [0-i]
+    for j in range(i+1):
+      # [0-----j-----i]
+      if s[i] == s[j]:
+        # [0----j]
+        # [0----j-i]
+        # if i - j < 2, then it is even substring 'aa'
+        # substring > 2, check inner substring
+        dp[j][i] = True if i - j <= 1 else dp[j+1][i-1]
+        
+      if dp[j][i] and i - j >= len(max_len):
+        max_len = s[j:i+1]
+
+  return max_len
