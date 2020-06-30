@@ -16,4 +16,11 @@ class Solution:
       
       if len(result) == k :
         return result[k-1]
-    
+  
+  def recursive(self, root, res):
+      if not root:
+        return 
+      self.recursive(root.left,res)
+      res.append(root.val)
+      self.recursive(root.right,res)
+      

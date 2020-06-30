@@ -21,6 +21,8 @@ def shortestbridge(islands):
   - iterative from the queue, find all possible move
   from 0 coordinate and its distance to find second island which 1 that has not been marked
   
+  -runtime O(NM), we visited every cell with size NxM only once
+  -space O(NM), we could store all the coordinates up to NxM cell
   """ 
   rows = len(islands)
   cols = len(islands[0])

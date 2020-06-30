@@ -28,6 +28,10 @@ def dp1D(nums):
 
   return grid[-1]
 def dp2D(nums):
+  """
+  runtime: O(MN), size of dp array
+  space: O(MN), size of dp array
+  """
   total = sum(nums)
   if total % 2 == 1:
     return False 

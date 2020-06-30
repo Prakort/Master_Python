@@ -13,3 +13,11 @@ def isPalindrome(s, left, right):
     right -= 1
 
   return True
+
+def solution2(s):
+  for i in range(len(s)//2):
+    end = len(s) -1 - i
+    if s[i] != s[end]:
+      return isPal(s[i+1:end+1]) or isPal(s[i:end])
+def isPal(s):
+  return s[:] == s[::-1]
