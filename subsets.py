@@ -27,4 +27,7 @@ def solution(nums):
     for copy in copies:
       copy.append(i)
       output.append(copy)
+
+  #for n in nums:
+  #  output += [ copy + [n] for copy in output]
   return output

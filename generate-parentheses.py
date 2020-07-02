@@ -10,6 +10,14 @@ def generate_paren(n):
   -case unclosed = 0, that we need an opening inorder to close
   -case avail not 0, we have two options which adding another '('
   and ')' the opening n = 2, '(' => '((' , '()'
+
+  runtime: O(2^2n) = O(2^n) 
+  1. at each call of helper we branch off  up to 2 times by adding '(' and ')'
+  2. then we go down at a depth of at most 2n, since 2n = # of '(' + # of ')' 
+  ==> (branch ^ depth) 2^2n
+
+  space: O(2*n) = O(n) space in recursively stack call of n paren, but we call recursively on ')'
+  opening + closing = 2n, O(n)
   """
 
 def helper(cur, num_avail, num_unclosed):
