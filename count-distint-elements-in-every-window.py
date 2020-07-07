@@ -41,3 +41,20 @@ print('res 3:', solution2([0,2,0,1,1,3], 3))
 
 
 
+
+def test(nums, k):
+  mapping = defaultdict(int)
+  res = []
+  for i in range(len(nums)):
+      mapping[nums[i]] += 1
+
+    if i >= k:
+      if mapping[nums[i - k]] == 1:
+        del mapping[nums[i - k]]
+      else:
+        mapping[nums[i - k]] -= 1
+
+    if sum(mapping.values()) == k:
+      res.append(len(mapping))
+
+  return res
