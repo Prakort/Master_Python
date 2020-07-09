@@ -7,6 +7,7 @@ def solution(nums, k):
 
   if key exists, current index - value >= 2, we found our sub array
   """
+  # offset -1 if there is a compliment
   hm = {0:-1}
   total = 0 
   
@@ -24,5 +25,6 @@ def solution(nums, k):
     if total in hm: 
       if i - hm[total] >= 2:
         return True
+    # use else so we dont over write the index of the same remainder
     else:
       hm[total] = i
