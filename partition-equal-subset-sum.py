@@ -47,6 +47,9 @@ def dp2D(nums):
       # if grid[i-1][3] = True, {subset} sum = 5
       if j >= nums[i - 1]:
         grid[i][j] = grid[i-1][j] or grid[i-1][j - nums[i-1]]
+      else:
+      # since value is greater the number, exclude the number
+        grid[i][j] = grid[i-1][j]
   return grid[-1][-1]
 
 def memorization(nums):
