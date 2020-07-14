@@ -3,7 +3,6 @@ def remove_parenthese(s):
   we want to keep track of the number of open and close that we have to remove
   still keep the valid paren to do so, we have to remove the extra open or close when need to
   and keep increment index. Add anything to the path if they are extra open or close
-
   to make a valid make, we use the need_close to keep track of number of open paren are needed to be closed
   
   runtime O(2^N)
