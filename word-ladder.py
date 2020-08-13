@@ -9,6 +9,8 @@ def solution(being, end, wordList):
 
   # 26x(word length) x given words
   # => MxN same space
+  # time: O(NxM) N len(wordlist), M = len(word) O(NxM)
+  # space: O(N) len(wordlist)
   q = deque()
   q.append((being, 1))
   given = set(wordList)
@@ -28,3 +30,67 @@ def solution(being, end, wordList):
 
   return 0
 
+
+def bidirectional(beginWord, endWord, wordList):
+    # hit -> hot -> dot -> dog -> cog 
+    #            -> lot -> log -> cog  
+    if endWord not in wordList:
+        return 0
+    # wordList.append(beginWord)
+    qFront = deque([(beginWord, 1)])
+    qEnd = deque([(endWord, 1)])
+    
+    seenFront = set([beginWord])
+    seenEnd = set([endWord])
+    
+    parentFront = defaultdict(str)
+    parentEnd = defaultdict(str)
+    
+    parentFront[beginWord] = beginWord
+    parentEnd[endWord] = endWord
+    
+    while qFront and qEnd:
+        curFront, levelFront = qFront.popleft()
+        curEnd, levelEnd = qEnd.popleft()
+        
+        intersect = seenFront.intersection(seenEnd)
+        if len(intersect) != 0:
+            word = intersect.pop()
+            counterToFront = 1
+            counterToEnd = 1
+            wordFront = word
+            wordEnd = word
+            while parentFront[wordFront] != wordFront:
+                wordFront = parentFront[wordFront]
+                counterToFront += 1
+            while parentEnd[wordEnd] != wordEnd:
+                wordEnd = parentEnd[wordEnd]
+                counterToEnd += 1
+        #front < -- middle - > end
+            print("hi", word)
+            return counterToFront + counterToEnd - 1 
+        for i in range(len(curFront)):
+            for j in 'asdfghjklqwertyuiopzxcvbnm':
+                newWord = curFront[:i] + j + curFront[i+1:]
+
+                if newWord == endWord:
+                    return levelFront + 1
+                if newWord in wordList and newWord not in seenFront:
+                    qFront.append((newWord, levelFront + 1))
+                    parentFront[newWord] = curFront
+                    seenFront.add(newWord)
+                    
+        for i in range(len(curEnd)):
+            for j in 'asdfghjklqwertyuiopzxcvbnm':
+                newWord = curEnd[:i] + j + curEnd[i+1:]
+                if newWord == beginWord:
+                    return levelEnd + 1
+                if newWord in wordList and newWord not in seenEnd:
+                    qEnd.append((newWord, levelEnd + 1))
+                    parentEnd[newWord]= curEnd
+                    seenEnd.add(newWord)
+                    
+    return 0
+            
+                
+        
