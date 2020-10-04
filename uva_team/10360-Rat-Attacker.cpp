@@ -20,20 +20,17 @@ int main(){
       // get the coordinates and population of the rat
       cin >> x >> y >> p ;
       // find the lowerbound and upperbound with the radius
-      int lower_x = max(x - d, 0);
-      int upper_x = min(x + y, 1024);
-      int lower_y = max(y - d, 0);
-      int upper_y = min(y + d, 1024);
-
-      for( int i = lower_x ; i <= upper_x ; i++){
-        for( int j = lower_y; j <= upper_y ; j++){
-          // increment the rat population
-          data[i][j] += p;
+      for( int i = x - d ; i <= x + d ; i++){
+        for( int j = y - d; j <= y + d ; j++){
+          // check if the coordinate is valid
+          if( i>= 0 && i < 1025 && j >=0 && j < 1025)
+            // increment the rat population
+            data[i][j] += p;
         }
       }
     }
 
-    int max = 0, ans_x = 0, ans_y = 0;
+    int max = -1, ans_x = 0, ans_y = 0;
 
     for( int i = 0; i < 1025; i++){
       for( int j = 0 ; j < 1025; j++){
@@ -46,7 +43,6 @@ int main(){
       }
     }
     cout << ans_x << " " << ans_y << " " << max << "\n";
-
 
   } 
 }
