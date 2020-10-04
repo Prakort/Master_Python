@@ -4,7 +4,7 @@
 #include <cmath>
 #include <stdio.h>
 
-#define EPS 1e-7 // .0000007
+#define EPS 1e-9 // .0000009
 
 using namespace std;
 // coefficients
@@ -18,22 +18,23 @@ void solution(){
   // find the lower and upper bound of f(x)
   double lower = eq(0);
   double upper = eq(1);
-
+  double mid = 0;
+  int exist = lower * upper > 0 ? 0 : 1;
   // IVT if [a,b] if f(a)  and f(b) have opposite sign, x exists
-  if( (lower * upper) < 0 ){
-    double low = 0;
-    double hi = 1;
+  if( exist ){
+    double low = 0.0;
+    double hi = 1.0;
 
     // using binary search to find the right answer
     while(low + EPS < hi){
-      double mid = (hi + low) / 2;
-      if( eq(mid) <= 0){
+      mid = (hi + low) / 2;
+      if( eq(mid) < 0){
         hi = mid;
       } else {
         low = mid;
       }
     }
-    printf("%.4lf\n", (low + hi)/2); 
+    printf("%.4lf\n", mid); 
 
   } else {
     cout << "No solution\n";
