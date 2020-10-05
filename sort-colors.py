@@ -41,7 +41,7 @@ def solution2(nums):
     # found 2
     # swap values where 2 should be at the end of the list
     elif nums[i] == 2:
-      nums[i] = nums[end_index]
+      nums[i] = nums[two_index]
       nums[two_index] = 2
       # getting to the left
       two_index -= 1

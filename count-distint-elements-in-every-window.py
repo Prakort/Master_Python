@@ -46,8 +46,7 @@ def test(nums, k):
   mapping = defaultdict(int)
   res = []
   for i in range(len(nums)):
-      mapping[nums[i]] += 1
-
+    mapping[nums[i]] += 1
     if i >= k:
       if mapping[nums[i - k]] == 1:
         del mapping[nums[i - k]]
