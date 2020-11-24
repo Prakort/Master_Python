@@ -9,6 +9,16 @@
 #include <cstring>
 using namespace std;
 
+/** 
+ * Prakort Lean 
+ * Jameel Jiwani
+ * Bilal Malik
+ * Problem: 200 Rare Order 
+ * link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=136
+**/
+
+
+
 // Convert integer value to ASCII character
 char toChar(int x){
   return char(x + 'A');
@@ -58,7 +68,7 @@ string solution(vector<string> words) {
         int start = toInt(word1[j]);
         int dist = toInt(word2[j]);
 
-        // we already know key exists 
+        // we already know the key exists 
         auto it = graph.find(start);
   
         // let's get the set of that key
@@ -137,10 +147,14 @@ int main(){
   // keep reading the string
   while( cin >> str ) {
     // stop when there is '#'
-    if( str == "#") break;
-    words.push_back(str);
+    if( str == "#") {
+      cout << solution(words) << endl;
+      words.erase(words.begin(), words.end());
+    }else {
+      words.push_back(str);
+    };
+   
   }
   // call the solution function
-  cout << solution(words) << endl;
 
 }
