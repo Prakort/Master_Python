@@ -19,34 +19,20 @@
 using namespace std;
 
 int main(){
-
   int N, M;
+  do {
+
   std::unordered_set < long unsigned > Jack;
   std::cin >> N >> M;
-
+  if( N==0 || M ==0)
+    break;
   int i = N+M;
   int t = N+M;
-  while(N--){
+  while(i--){
     long unsigned x;
     std::cin >> x;
     Jack.insert(x);
   }
-  long unsigned count = 0;
-  while(M--){
-    long unsigned x;
-    std::cin >> x;
-    auto i = Jack.find(x);
-    if(i != Jack.end()){
-      count +=1;
-    }
-  }
-
-
-  // long counter =  t - Jack.size();
-  std::cout << count << endl;
-
-  if(N == '0' && M == '0')
-    return 0;
-  
-
+  std::cout << t - Jack.size() << endl;
+  } while (1);
 }
